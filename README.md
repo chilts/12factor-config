@@ -1,7 +1,9 @@
 # 12factor-config #
 
-A config module which only reads the environment. For Node.js that means `process.env`. We will not ever use `NODE_ENV`
-here since each environment should specify everything it needs and nothing should be dependent on being a particular
+A config module which only reads the environment. For Node.js that means `process.env`.
+
+We will not ever use `NODE_ENV` in any example here since each environment should specify
+everything it needs and nothing should be dependent on being a particular
 environment (such as 'development', 'testing', 'staging' or 'production').
 
 ```javascript
