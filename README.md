@@ -33,11 +33,24 @@ var cfg = config({
         default  : false,
     },
 });
+
+console.log(cfg);
 ```
 
-Note: I'm not showing any example which used `NODE_ENV` since http://12factor.net/config
-says that each environment specifies everything exactly rather than all stemming from an
-overall environment type.
+Should output something like:
+
+```
+{
+  redisUrl: 'redis://user:password@hostname:port/db',
+  logfile: '/var/log/appname.log',
+  port: 8000,
+  debug: false
+  }
+```
+
+It is advisable to prefix your environment variables with a prefix related to your application
+name as shown in the later config vars above. Mainly this is to namespace your vars and not stomp
+over others already defined. Of course you don't need to use the prefix in the local name.
 
 ## Author ##
 
