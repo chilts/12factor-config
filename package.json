@@ -1,0 +1,26 @@
+{
+  "name": "12factor-config",
+  "description": "Read the config for your app from only the environment.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/chilts/12factor-config",
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "~2.3.2"
+  },
+  "repository"   : {
+    "type" : "git",
+    "url"  : "git://github.com/chilts/12factor-config.git"
+  },
+  "bugs" : {
+    "url": "http://github.com/chilts/12factor-config/issues",
+    "mail": "andychilton@gmail.com"
+  },
+  "licenses" : [{
+    "type": "MIT",
+    "url": "http://chilts.mit-license.org/2013/"
+  }],
+  "keywords": [ "config", "env", "environment", "12factor" ],
+  "scripts": {
+    "test": "for FILE in test/*.js; do echo $FILE; node $FILE; done"
+  }
+}
