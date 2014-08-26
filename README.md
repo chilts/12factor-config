@@ -6,6 +6,18 @@ We will not ever use `NODE_ENV` in any example here since each environment shoul
 everything it needs and nothing should be dependent on being a particular
 environment (such as 'development', 'testing', 'staging' or 'production').
 
+## Synopsis ##
+
+Firstly, set some environment variables that your program will look for. You don't need
+to set any that have a 'default' but you do need to set any that are 'required'.
+
+```bash
+$ export REDIS_URL=redis://user:password@hostname:port/db
+$ export APPNAME_PORT=8080
+```
+
+Then, in your program:
+
 ```javascript
 var config = require('12factor-config');
 
@@ -43,7 +55,7 @@ Should output something like:
 {
   redisUrl: 'redis://user:password@hostname:port/db',
   logfile: '/var/log/appname.log',
-  port: 8000,
+  port: 8080,
   debug: false
   }
 ```
@@ -52,9 +64,26 @@ It is advisable to prefix your environment variables with a prefix related to yo
 name as shown in the later config vars above. Mainly this is to namespace your vars and not stomp
 over others already defined. Of course you don't need to use the prefix in the local name.
 
+## What I Do ##
+
+I usually have a `lib/cfg.js` such as the following:
+
+```javascript
+var config = require('12factor-config');
+
+var cfg = config({
+    // ... environment config here ...
+});
+
+module.exports = cfg;
+```
+
+By doing this, all other files in your application can just `require('lib/cfg.js')` and obtain
+the exact same configuration.
+
 ## Author ##
 
-Written by [Andrew Chilton](http://chilts.org/) - [Blog](http://chilts.org/blog/) -
+Written by [Andrew Chilton](http://chilts.org/) - [Blog](http://chilts.org/) -
 [Twitter](https://twitter.com/andychilton).
 
 ## License ##
