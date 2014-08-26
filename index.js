@@ -1,9 +1,11 @@
+var util = require('util')
 
 var valid = {
     type : {
         'string'   : true,
         'integer'  : true,
         'boolean'  : true,
+        'enum'     : true,
     },
 };
 
@@ -56,6 +58,24 @@ function config(opts) {
         }
         else if ( opt.type === 'integer' ) {
             cfg[name] = parseInt(value, 10);
+        }
+        else if ( opt.type === 'enum' ) {
+            // firstly, check that values has been given and is greater than 0
+            if ( !opt.values || !Array.isArray(opt.values) || opt.values.length === 0 ) {
+              throw new Error(util.format("No values specified for the '%s' enum", name))
+            }
+
+            // check that this value is allowed
+            var enumOk = false;
+            opt.values.forEach(function(enumValue) {
+                if ( value === enumValue ) {
+                    enumOk = true;
+                }
+            });
+            if ( !enumOk ) {
+              throw new Error(util.format('Invalid enum for %s(%s) : %s', name, opt.values.join(', '), value));
+            }
+            cfg[name] = value
         }
         else {
             throw new Error('Program error');

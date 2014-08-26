@@ -22,5 +22,7 @@
   "keywords": [ "config", "env", "environment", "12factor" ],
   "scripts": {
     "test": "for FILE in test/*.js; do echo $FILE; node $FILE; done"
-  }
+  },
+  "author": "Andrew Chilton",
+  "license": "MIT"
 }

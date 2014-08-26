@@ -44,6 +44,11 @@ var cfg = config({
         type     : 'boolean',
         default  : false,
     },
+    env : {
+        env      : 'NODE_ENV',
+        type     : 'enum',
+        values   : [ 'development', 'test', 'stage', 'production', ],
+    },
 });
 
 console.log(cfg);
@@ -56,7 +61,8 @@ Should output something like:
   redisUrl: 'redis://user:password@hostname:port/db',
   logfile: '/var/log/appname.log',
   port: 8080,
-  debug: false
+  debug: false,
+  env: 'development'
   }
 ```
 
