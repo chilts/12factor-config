@@ -15,10 +15,7 @@
     "url": "http://github.com/chilts/12factor-config/issues",
     "mail": "andychilton@gmail.com"
   },
-  "licenses" : [{
-    "type": "MIT",
-    "url": "http://chilts.mit-license.org/2013/"
-  }],
+  "license" : "MIT",
   "keywords": [ "config", "env", "environment", "12factor" ],
   "scripts": {
     "test": "for FILE in test/*.js; do echo $FILE; node $FILE; done"
