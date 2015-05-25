@@ -1,7 +1,7 @@
 {
   "name": "12factor-config",
   "description": "Read the config for your app from only the environment.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/chilts/12factor-config",
   "dependencies": {},
   "devDependencies": {
