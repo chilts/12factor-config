@@ -6,7 +6,7 @@ Note 1 : We will not ever use `NODE_ENV` in any example here since each environm
 should specify everything it needs and nothing should be dependent on being a particular
 environment (such as 'development', 'testing', 'staging' or 'production').
 
-NOTE 2 : This package is considered stable so the fact that there are few commits these
+Note 2 : This package is considered stable so the fact that there are few commits these
 days is no sign of inactivity, just stability. Please use and submit PRs for bugs. New
 features will be considered too.
 
