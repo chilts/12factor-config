@@ -11,7 +11,7 @@ var valid = {
 
 function config(opts) {
     var cfg = {};
-    
+
     var options = Object.keys(opts);
 
     options.forEach(function(name) {
@@ -33,7 +33,7 @@ function config(opts) {
         }
 
         // if we don't have a value, check whether it is required or not
-        if ( value === null ) {
+        if ( value === null || value === undefined ) {
             if ( opt.required ) {
                 throw new Error("Required value not provided: " + name);
             }
