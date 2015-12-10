@@ -5,7 +5,7 @@
   "homepage": "https://github.com/chilts/12factor-config",
   "dependencies": {},
   "devDependencies": {
-    "tape": "~2.3.2"
+    "tape": "~4.2.2"
   },
   "repository"   : {
     "type" : "git",
