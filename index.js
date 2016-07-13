@@ -7,6 +7,22 @@ var valid = {
         'boolean'  : true,
         'enum'     : true,
     },
+    boolean : {
+        'true'     : true,
+        'false'    : false,
+        't'        : true,
+        'f'        : false,
+        'yes'      : true,
+        'no'       : false,
+        'y'        : true,
+        'n'        : false,
+        'on'       : true,
+        'off'      : false,
+        '1'        : true,
+        '0'        : false,
+        true       : true,
+        false      : false,
+    },
 };
 
 function config(opts) {
@@ -46,11 +62,10 @@ function config(opts) {
             cfg[name] = value;
         }
         else if ( opt.type === 'boolean' ) {
-            if ( value === 'true' ) {
-                cfg[name] = true;
-            }
-            else if ( value === 'false' ) {
-                cfg[name] = false;
+            booleanValue = valid.boolean[value.toLowerCase()];
+
+            if ( booleanValue !== undefined ) {
+                cfg[name] = booleanValue;
             }
             else {
                 throw new Error('Invalid boolean for ' + name + ' : ' + value);
