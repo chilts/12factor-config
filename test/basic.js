@@ -115,3 +115,76 @@ test('enum, no values specified', function(t) {
 
     t.end();
 });
+
+test('boolean, true values', function(t) {
+    var trueString = [
+        'true', 'True', 'TRUE', 'yes', 'Yes', 'YES', 'y', 'Y', '1', 'on', 'On', 'ON', true,
+    ];
+
+    t.plan(trueString.length);
+
+    trueString.forEach(function(value) {
+        process.env.USE_TLS = value;
+
+        var cfg = config({
+            tls : {
+                env : 'USE_TLS',
+                type : 'boolean',
+            },
+        });
+
+        t.deepEqual(cfg.tls, true, 'tls is true for ' + value);
+    });
+
+    t.end();
+});
+
+test('boolean, false values', function(t) {
+    var falseString = [
+        'false', 'False', 'FALSE', 'no', 'No', 'NO', 'n', 'N', '0', 'off', 'Off', 'OFF', false,
+    ];
+
+    t.plan(falseString.length);
+
+    falseString.forEach(function(value) {
+        process.env.USE_TLS = value;
+
+        var cfg = config({
+            tls : {
+                env : 'USE_TLS',
+                type : 'boolean',
+            },
+        });
+
+        t.deepEqual(cfg.tls, false, 'tls is false for ' + value);
+    });
+
+    t.end();
+});
+
+test('boolean, invalid values', function(t) {
+    var invalidString = [
+        'invalid',
+    ];
+
+    t.plan(invalidString.length);
+
+    invalidString.forEach(function(value) {
+        process.env.USE_TLS = value;
+
+        try {
+            var cfg = config({
+                tls : {
+                    env : 'USE_TLS',
+                    type : 'boolean',
+                },
+            });
+            t.fail('This config should fail, invalid value for boolean')
+        }
+        catch (err) {
+            t.equal(err.message, "Invalid boolean for tls : " + value, 'Failed with the correct error message');
+        }
+    });
+
+    t.end();
+});
