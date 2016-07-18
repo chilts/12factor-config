@@ -55,6 +55,7 @@ var cfg = config({
         default  : false,
     },
     env : {
+        // you really shouldn't use this, but some people/packages do
         env      : 'NODE_ENV',
         type     : 'enum',
         values   : [ 'development', 'test', 'stage', 'production', ],
