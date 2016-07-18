@@ -20,8 +20,6 @@ var valid = {
         'off'      : false,
         '1'        : true,
         '0'        : false,
-        true       : true,
-        false      : false,
     },
 };
 

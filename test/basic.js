@@ -118,7 +118,7 @@ test('enum, no values specified', function(t) {
 
 test('boolean, true values', function(t) {
     var trueString = [
-        'true', 'True', 'TRUE', 'yes', 'Yes', 'YES', 'y', 'Y', '1', 'on', 'On', 'ON', true,
+        'true', 'True', 'TRUE', 'yes', 'Yes', 'YES', 'y', 'Y', '1', 'on', 'On', 'ON',
     ];
 
     t.plan(trueString.length);
@@ -141,7 +141,7 @@ test('boolean, true values', function(t) {
 
 test('boolean, false values', function(t) {
     var falseString = [
-        'false', 'False', 'FALSE', 'no', 'No', 'NO', 'n', 'N', '0', 'off', 'Off', 'OFF', false,
+        'false', 'False', 'FALSE', 'no', 'No', 'NO', 'n', 'N', '0', 'off', 'Off', 'OFF',
     ];
 
     t.plan(falseString.length);
