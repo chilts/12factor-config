@@ -74,12 +74,22 @@ Should output something like:
   port: 8080,
   debug: false,
   env: 'development'
-  }
+}
 ```
 
 It is advisable to prefix your environment variables with a prefix related to your application
 name as shown in the later config vars above. Mainly this is to namespace your vars and not stomp
 over others already defined. Of course you don't need to use the prefix in the local name.
+
+## Valid Values ##
+
+When you have certain types, some transformations are performed to get it from a string (since the
+environment only contains string) into the required value.
+
+* `boolean` - upper or lower case is allowed
+    * true - 'true', 't', 'yes', 'y', 'on', '1'
+    * false - 'false', 'f', 'no', 'n', 'off', '0'
+    * any other value throws
 
 ## What I Do ##
 
