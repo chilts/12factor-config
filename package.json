@@ -1,25 +1,45 @@
 {
   "name": "12factor-config",
   "description": "Read the config for your app from only the environment.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "homepage": "https://github.com/chilts/12factor-config",
-  "dependencies": {},
-  "devDependencies": {
-    "tape": "~4.2.2"
-  },
-  "repository"   : {
-    "type" : "git",
-    "url"  : "git://github.com/chilts/12factor-config.git"
-  },
-  "bugs" : {
-    "url": "http://github.com/chilts/12factor-config/issues",
-    "mail": "andychilton@gmail.com"
-  },
-  "license" : "MIT",
-  "keywords": [ "config", "env", "environment", "12factor" ],
   "scripts": {
     "test": "for FILE in test/*.js; do echo $FILE; node $FILE; done"
   },
-  "author": "Andrew Chilton",
-  "license": "MIT"
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "^4.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chilts/12factor-config.git"
+  },
+  "bugs": {
+    "url": "http://github.com/chilts/12factor-config/issues",
+    "mail": "andychilton@gmail.com"
+  },
+  "author": {
+    "name": "Andrew Chilton",
+    "email": "andychilton@gmail.com",
+    "url": "http://www.chilts.org/"
+  },
+  "contributors": [
+    {
+      "name": "Stuart Clark",
+      "email": "stuart.clark@Jahingo.com",
+      "url": "https://github.com/stuart-c"
+    }
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://chilts.mit-license.org/2014/"
+    }
+  ],
+  "keywords": [
+    "config",
+    "env",
+    "environment",
+    "12factor"
+  ]
 }
