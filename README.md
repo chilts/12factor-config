@@ -10,6 +10,12 @@ Note 2 : This package is considered stable so the fact that there are few commit
 days is no sign of inactivity, just stability. Please use and submit PRs for bugs. New
 features will be considered too.
 
+## Stability ##
+
+Please note that this project is pretty much feature complete. Issues will be fixed. New
+features may be added if necessary. Otherwise it won't have very many more releases - but
+rest assured I will support it and you. The project is not dead, it is merely resting.
+
 ## Synopsis ##
 
 Firstly, set some environment variables that your program will look for. You don't need
