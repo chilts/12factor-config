@@ -52,7 +52,7 @@ var cfg = config({
     debug : {
         env      : 'APPNAME_DEBUG',
         type     : 'boolean',
-        default  : false,
+        default  : 'false',
     },
     env : {
         // you really shouldn't use this, but some people/packages do
