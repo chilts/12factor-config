@@ -188,3 +188,42 @@ test('boolean, invalid values', function(t) {
 
     t.end();
 });
+
+
+test('boolean, default value', function(t) {
+    t.plan(2);
+
+    delete process.env.USE_TLS;
+
+    try {
+        var cfg = config({
+            tls : {
+                env : 'USE_TLS',
+                type : 'boolean',
+                default : true,
+            },
+        });
+
+        t.deepEqual(cfg.tls, true, 'tls is default true');
+    }
+    catch (err) {
+        t.fail('This config should not have failed')
+    }
+
+    try {
+        var cfg = config({
+            tls : {
+                env : 'USE_TLS',
+                type : 'boolean',
+                default : false,
+            },
+        });
+
+        t.deepEqual(cfg.tls, false, 'tls is default false');
+    }
+    catch (err) {
+        t.fail('This config should not have failed')
+    }
+
+    t.end();
+});

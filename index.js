@@ -60,7 +60,12 @@ function config(opts) {
             cfg[name] = value;
         }
         else if ( opt.type === 'boolean' ) {
-            booleanValue = valid.boolean[value.toLowerCase()];
+            if ( typeof value === 'boolean' ) {
+                booleanValue = value;
+            }
+            else if ( typeof value === 'string' ) {
+                booleanValue = valid.boolean[value.toLowerCase()];
+            }
 
             if ( booleanValue !== undefined ) {
                 cfg[name] = booleanValue;
