@@ -23,6 +23,10 @@ var valid = {
     },
 };
 
+function typeOf (obj) {
+    return {}.toString.call(obj).split(' ')[1].slice(0, -1).toLowerCase();
+}
+
 function config(opts) {
     var cfg = {};
 
@@ -60,7 +64,11 @@ function config(opts) {
             cfg[name] = value;
         }
         else if ( opt.type === 'boolean' ) {
-            booleanValue = valid.boolean[value.toLowerCase()];
+            if ( typeOf(value) != 'boolean' ) {
+                booleanValue = valid.boolean[value.toLowerCase()];
+            } else {
+                booleanValue = value
+            }
 
             if ( booleanValue !== undefined ) {
                 cfg[name] = booleanValue;
