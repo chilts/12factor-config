@@ -60,6 +60,7 @@ function config(opts) {
             cfg[name] = value;
         }
         else if ( opt.type === 'boolean' ) {
+            var booleanValue;
             if ( typeof value === 'boolean' ) {
                 booleanValue = value;
             }
