@@ -110,7 +110,7 @@ the exact same configuration.
 
 ## Author ##
 
-Written by [Andrew Chilton](http://chilts.org/) - [Blog](http://chilts.org/) -
+Written by [Andrew Chilton](https://chilts.org/) -
 [Twitter](https://twitter.com/andychilton).
 
 ## License ##
