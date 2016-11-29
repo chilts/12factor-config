@@ -29,8 +29,14 @@ function config(opts) {
     var options = Object.keys(opts);
 
     options.forEach(function(name) {
-        // set some defaults
         var opt = opts[name];
+
+        if ( configurationSeemsNested(opt) ) {
+            cfg[name] = config(opt);
+            return;
+        }
+
+        // set some defaults
         opt.type = opt.type || 'string';
 
         if ( !valid.type[opt.type] ) {
@@ -102,6 +108,10 @@ function config(opts) {
     });
 
     return cfg;
+
+    function configurationSeemsNested(opt) {
+        return opt.env === undefined;
+    }
 };
 
 module.exports = config;

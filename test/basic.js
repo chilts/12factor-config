@@ -227,3 +227,45 @@ test('boolean, default value', function(t) {
 
     t.end();
 });
+
+test('nested configuration', function(t) {
+    process.env.DATABASE_URL = 'mongodb://localhost/test';
+    process.env.DATABASE_USER = 'admin';
+
+    var cfg = config({
+        database: {
+            url: {
+                env: 'DATABASE_URL'
+            },
+            user: {
+                env: 'DATABASE_USER'
+            }
+        }
+    });
+
+    t.notEqual(undefined, cfg.database);
+    t.equal(cfg.database.url, 'mongodb://localhost/test');
+    t.equal(cfg.database.user, 'admin');
+    t.end();
+});
+
+test('nested and flat configurations', function(t) {
+    process.env.DATABASE_URL = 'mongodb://localhost/test';
+    process.env.LOG_LEVEL = 'info';
+
+    var cfg = config({
+        database: {
+            url: {
+                env: 'DATABASE_URL'
+            }
+        },
+        logLevel: {
+            env: 'LOG_LEVEL'
+        }
+    });
+
+    t.notEqual(undefined, cfg.database);
+    t.equal(cfg.database.url, 'mongodb://localhost/test');
+    t.equal(cfg.logLevel, 'info');
+    t.end();
+});

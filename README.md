@@ -108,6 +108,37 @@ module.exports = cfg;
 By doing this, all other files in your application can just `require('lib/cfg.js')` and obtain
 the exact same configuration.
 
+## Nested configuration ##
+
+Configuration can be nested:
+
+```javascript
+var cfg = config({
+    redis: {
+        url: {
+            env      : 'REDIS_URL',
+            required : true
+        },
+        user: {
+            env      : 'REDIS_USER'
+        }
+    }
+});
+
+console.log(cfg);
+```
+Should output a nested object:
+
+```
+{
+  redis: {
+      url: 'some url',
+      user: 'some user
+  }
+}
+```
+
+
 ## Author ##
 
 Written by [Andrew Chilton](http://chilts.org/) - [Blog](http://chilts.org/) -
