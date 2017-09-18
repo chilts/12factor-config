@@ -38,12 +38,9 @@ function config(opts) {
         }
 
         // set the default if nothing set in the env
-        var value;
-        if ( opt.default === undefined ) { // don't just check 'opt.default' since it might be 0 or false
-            value = process.env[opt.env];
-        }
-        else {
-            value = process.env[opt.env] || opt.default;
+        var value = process.env[opt.env];
+        if ( value === undefined ) { // don't just check 'value' since it might be an empty string
+            value = opt.default;
         }
 
         // if we don't have a value, check whether it is required or not
