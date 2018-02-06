@@ -59,6 +59,24 @@ test('basic', function(t) {
     t.end();
 });
 
+test('string, empty string value', function(t) {
+    process.env.EMPTY = '';
+
+    var cfg = config({
+        empty : {
+            env      : 'EMPTY',
+            type     : 'string',
+            default  : 'not empty',
+        },
+    });
+
+    t.equal(cfg.empty, '', 'empty should be an empty string');
+
+    delete process.env.EMPTY;
+
+    t.end();
+});
+
 test('enum, passes ok', function(t) {
     process.env.ENVIRONMENT = 'development';
 
